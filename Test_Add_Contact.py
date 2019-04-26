@@ -15,7 +15,7 @@ class TestAddContact(unittest.TestCase):
     def test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd, "admin", "secret")
+        self.login(wd, username = "admin", password = "secret")
         self.neu_form(wd)
         self.fitstname(wd, "jdfdsfgs")
         self.middlname(wd, "gdhf")
@@ -89,13 +89,13 @@ class TestAddContact(unittest.TestCase):
     def neu_form(self, wd):
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, wd, username, login):
+    def login(self, wd, username, password):
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("%s" % username)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("%s" % login)
+        wd.find_element_by_name("pass").send_keys("%s" % password)
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_home_page(self, wd):
