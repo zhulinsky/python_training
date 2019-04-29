@@ -14,7 +14,9 @@ class TestAddContact(unittest.TestCase):
 
     def test_add_contact(self):
         wd = self.wd
+        # open home page
         wd.get("http://localhost/addressbook/")
+        #login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
@@ -22,7 +24,9 @@ class TestAddContact(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        # open neu page
         wd.find_element_by_link_text("add new").click()
+        # name
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys("jdfdsfgs")
@@ -32,18 +36,22 @@ class TestAddContact(unittest.TestCase):
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
         wd.find_element_by_name("lastname").send_keys("kldfgj")
+        # address
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
         wd.find_element_by_name("address").send_keys("ertwerwte")
+        #telefon
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
         wd.find_element_by_name("home").send_keys("34534534")
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
         wd.find_element_by_name("mobile").send_keys("5687454653456")
+        # email
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys("mous_dom@mail.ru")
+        # bd
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_visible_text("11")
         wd.find_element_by_name("bday").click()
@@ -53,7 +61,9 @@ class TestAddContact(unittest.TestCase):
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys("1974")
+        #sabmit
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        #logout
         wd.find_element_by_link_text("Logout").click()
     
     def is_element_present(self, how, what):
